@@ -4,32 +4,44 @@ import Avatar from "../components/Avatar.astro";
 ---
 
 <MainLayout title="Clase 13 - CSS Grid">
-<div class="top-section">
-  <section class="container-demo-section">
-    <div class="resizable-container">
-      <Avatar 
-        imageUrl="/images/avatar.jpg" 
-        name="Jeremias Seisdedos" 
-        role="Web Developer" 
-        buttonText="More Info"
-        buttonLink="https://github.com/Jeremias-Seisdedos"
-      />
-    </div>
-  </section> 
-  <header class="my-gallery">
-    <h1 class="my-gallery__title">My Gallery</h1>
-    <button class="menu-button">
-      <img src="/images/icon.jpg" class="menu-icon" alt="Menu icon" />
-    </button>
+  <div class="top-section">
+    <section class="container-demo-section">
+      <div class="resizable-container">
+        <Avatar
+          imageUrl="/images/avatar.jpg"
+          name="Jeremias Seisdedos"
+          role="Web Developer"
+          buttonText="More Info"
+          buttonLink="https://github.com/Jeremias-Seisdedos"
+        />
+      </div>
+    </section>
+    <header class="my-gallery">
+      <h1 class="my-gallery__title">My Gallery</h1>
+      <button class="menu-button">
+        <img src="/images/icon.jpg" class="menu-icon" alt="Menu icon" />
+      </button>
 
-    <nav class="my-gallery__menu">
-      <a href="" class="my-gallery__link">Home</a>
-      <a href="https://www.bocajuniors.com.ar" target="_blank" class="my-gallery__link">About</a>
-      <a href="https://www.pinterest.com/search/pins/?q=boca%20juniors" target="_blank" class="my-gallery__link">More</a>
-      <a href="https://historiadeboca.com.ar/" target="_blank" class="my-gallery__link">History</a>
-    </nav>
-  </header>
-</div>
+      <nav class="my-gallery__menu">
+        <a href="" class="my-gallery__link">Home</a>
+        <a
+          href="https://www.bocajuniors.com.ar"
+          target="_blank"
+          class="my-gallery__link">About</a
+        >
+        <a
+          href="https://www.pinterest.com/search/pins/?q=boca%20juniors"
+          target="_blank"
+          class="my-gallery__link">More</a
+        >
+        <a
+          href="https://historiadeboca.com.ar/"
+          target="_blank"
+          class="my-gallery__link">History</a
+        >
+      </nav>
+    </header>
+  </div>
   <section class="my-gallery__image">
     <figure class="my-gallery__image--small">
       <img src="/images/foto1.jpg" alt="Image 1" />
@@ -68,7 +80,6 @@ import Avatar from "../components/Avatar.astro";
 </MainLayout>
 
 <style>
-  
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: oklch(0.2088 0.0296 276.35);
@@ -77,33 +88,33 @@ import Avatar from "../components/Avatar.astro";
   }
 
   .top-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 0;
-  width: 100%;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    width: 100%;
+  }
   .container-demo-section {
-  margin: 0 auto;
-  padding: 0;
-}
+    margin: 0 auto;
+    padding: 0;
+  }
 
   .resizable-container {
-  margin: 1rem auto;
-  padding: 1rem;
-  border: 2px dashed oklch(0.8769 0.0296 230.21);
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.05);
-  resize: horizontal;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 2px dashed oklch(0.8769 0.0296 230.21);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    resize: horizontal;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .menu-button {
     display: flex;
@@ -125,12 +136,12 @@ import Avatar from "../components/Avatar.astro";
   }
 
   .my-gallery {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-}
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
   .my-gallery__menu {
     display: none;
     flex-direction: column;
@@ -165,7 +176,6 @@ import Avatar from "../components/Avatar.astro";
     color: darkgoldenrod;
   }
 
- 
   .my-gallery__image {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -201,7 +211,7 @@ import Avatar from "../components/Avatar.astro";
 
   @media (min-width: 768px) {
     .menu-button {
-      display: none; 
+      display: none;
     }
 
     .my-gallery__menu {
@@ -236,34 +246,33 @@ import Avatar from "../components/Avatar.astro";
     }
 
     .my-gallery {
-    flex-grow: 1;
-    align-items: center;
-  }
+      flex-grow: 1;
+      align-items: center;
+    }
 
-   .top-section {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-  
-  .container-demo-section {
-    margin: 0;
-    max-width: 400px;
-    
-  }
-  
-  .resizable-container {
-    width: 200px;
-    height: 150px;
-  }
+    .top-section {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .container-demo-section {
+      margin: 0;
+      max-width: 400px;
+    }
+
+    .resizable-container {
+      width: 200px;
+      height: 150px;
+    }
   }
 
   @media (min-width: 1200px) {
     .resizable-container {
-    width: 250px;
-    height: 200px;
-  }
+      width: 250px;
+      height: 200px;
+    }
     .my-gallery__menu {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -289,9 +298,8 @@ import Avatar from "../components/Avatar.astro";
     .my-gallery__link:hover {
       color: darkgoldenrod;
     }
-    .my-gallery__link
-    {
-        font-size:2.6rem ;
+    .my-gallery__link {
+      font-size: 2.6rem;
     }
   }
 </style>

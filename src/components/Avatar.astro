@@ -1,5 +1,11 @@
 ---
-const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astro.props;
+const {
+  imageUrl,
+  name,
+  role,
+  buttonText = "Contactar",
+  buttonLink = "#",
+} = Astro.props;
 ---
 
 <div class="user-avatar">
@@ -9,7 +15,8 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
     <p class="avatar__role">{role}</p>
     <a href={buttonLink} target="_blank" class="avatar__button">
       {buttonText}
-    </a>  </div>
+    </a>
+  </div>
 </div>
 
 <style>
@@ -43,8 +50,7 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
   .avatar__name {
     margin: 1px;
     font-size: 0.9rem;
-    color:#fafafa;
-    
+    color: #fafafa;
   }
 
   .avatar__role {
@@ -66,7 +72,6 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
     transition: all 0.3s ease;
     font-size: 0.7rem;
     max-width: 100px;
-    
   }
 
   .avatar__button:hover {
@@ -80,12 +85,13 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
       flex-direction: row;
       align-items: center;
     }
-    
+
     .avatar__content {
       display: flex;
     }
-    
-    .avatar__role, .avatar__button {
+
+    .avatar__role,
+    .avatar__button {
       display: none;
     }
   }
@@ -94,7 +100,7 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
     .avatar__name {
       font-size: 1.1rem;
     }
-    
+
     .avatar__role {
       display: block;
     }
@@ -106,12 +112,12 @@ const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astr
       align-items: flex-start;
       gap: 1.5rem;
     }
-    
+
     .avatar__image {
       width: 80px;
       height: 80px;
     }
-    
+
     .avatar__button {
       display: inline-block;
       margin-top: 0.5rem;

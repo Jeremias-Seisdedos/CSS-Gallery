@@ -1,0 +1,122 @@
+---
+const { imageUrl, name, role, buttonText = "Contactar",buttonLink = "#" } = Astro.props;
+---
+
+<div class="user-avatar">
+  <img src={imageUrl} alt={`Avatar de ${name}`} class="avatar__image" />
+  <div class="avatar__content">
+    <h3 class="avatar__name">{name}</h3>
+    <p class="avatar__role">{role}</p>
+    <a href={buttonLink} target="_blank" class="avatar__button">
+      {buttonText}
+    </a>  </div>
+</div>
+
+<style>
+  .user-avatar {
+    container-type: inline-size;
+    container-name: avatar;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+
+  .avatar__content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .avatar__name {
+    margin: 1px;
+    font-size: 0.9rem;
+    color:#fafafa;
+    
+  }
+
+  .avatar__role {
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+    color: #fafafa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .avatar__button {
+    padding: 0.3rem 0.8rem;
+    background: oklch(0.2088 0.0296 276.35);
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.7rem;
+    max-width: 100px;
+    
+  }
+
+  .avatar__button:hover {
+    background: oklch(0.8769 0.0296 230.21);
+    color: oklch(0.2088 0.0296 276.35);
+  }
+
+  /* Container Queries */
+  @container avatar (min-width: 80px) {
+    .user-avatar {
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .avatar__content {
+      display: flex;
+    }
+    
+    .avatar__role, .avatar__button {
+      display: none;
+    }
+  }
+
+  @container avatar (min-width: 180px) {
+    .avatar__name {
+      font-size: 1.1rem;
+    }
+    
+    .avatar__role {
+      display: block;
+    }
+  }
+
+  @container avatar (min-width: 250px) {
+    .user-avatar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    
+    .avatar__image {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .avatar__button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>

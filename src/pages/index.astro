@@ -1,16 +1,311 @@
 ---
-
+import MainLayout from "../layout/MainLayout.astro";
+import Avatar from "../components/Avatar.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Clase 13 - CSS Grid">
+<div class="top-section">
+  <section class="container-demo-section">
+    <div class="resizable-container">
+      <Avatar 
+        imageUrl="/images/avatar.jpg" 
+        name="Jeremias Seisdedos" 
+        role="Web Developer" 
+        buttonText="More Info"
+        buttonLink="https://github.com/Jeremias-Seisdedos"
+      />
+    </div>
+  </section> 
+  <header class="my-gallery">
+    <h1 class="my-gallery__title">My Gallery</h1>
+    <button class="menu-button">
+      <img src="/images/icon.jpg" class="menu-icon" alt="Menu icon" />
+    </button>
+
+    <nav class="my-gallery__menu">
+      <a href="" class="my-gallery__link">Home</a>
+      <a href="https://www.bocajuniors.com.ar" target="_blank" class="my-gallery__link">About</a>
+      <a href="https://www.pinterest.com/search/pins/?q=boca%20juniors" target="_blank" class="my-gallery__link">More</a>
+      <a href="https://historiadeboca.com.ar/" target="_blank" class="my-gallery__link">History</a>
+    </nav>
+  </header>
+</div>
+  <section class="my-gallery__image">
+    <figure class="my-gallery__image--small">
+      <img src="/images/foto1.jpg" alt="Image 1" />
+    </figure>
+    <figure class="my-gallery__image--small">
+      <img src="/images/foto2.jpg" alt="Image 2" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto3.jpg" alt="Image 3" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto4.jpg" alt="Image 4" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto5.jpg" alt="Image 5" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto6.jpg" alt="Image 6" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto7.jpg" alt="Image 7" />
+    </figure>
+    <figure class="my-gallery__image--small">
+      <img src="/images/foto8.jpg" alt="Image 8" />
+    </figure>
+    <figure class="my-gallery__image--small">
+      <img src="/images/foto11.jpg" alt="Image 8" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto9.jpg" alt="Image 9" />
+    </figure>
+    <figure class="my-gallery__image--big">
+      <img src="/images/foto10.jpg" alt="Image 10" />
+    </figure>
+  </section>
+</MainLayout>
+
+<style>
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: oklch(0.2088 0.0296 276.35);
+    color: oklch(0.8769 0.0296 230.21);
+    padding: 20px;
+  }
+
+  .top-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  width: 100%;
+}
+  .container-demo-section {
+  margin: 0 auto;
+  padding: 0;
+}
+
+  .resizable-container {
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 2px dashed oklch(0.8769 0.0296 230.21);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  resize: horizontal;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .menu-button {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .menu-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+    padding: 5px;
+  }
+
+  .my-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+  .my-gallery__menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    align-items: center;
+
+    background: oklch(0.2088 0.0296 276.35);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  .my-gallery__menu.show-menu {
+    display: flex;
+  }
+
+  .my-gallery__link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: oklch(0.8769 0.0296 230.21);
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .my-gallery__link:hover {
+    color: darkgoldenrod;
+  }
+
+ 
+  .my-gallery__image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .my-gallery__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .my-gallery__image figure:hover {
+    transform: scale(1.02);
+  }
+
+  .my-gallery__image--big {
+    grid-column: span 2;
+  }
+
+  .my-gallery__image--small {
+    grid-column: span 1;
+  }
+
+  .my-gallery__title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .menu-button {
+      display: none; 
+    }
+
+    .my-gallery__menu {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      position: static;
+      gap: 10px;
+      margin: 0;
+    }
+    .my-gallery__image {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .my-gallery__image--big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .my-gallery__link:hover {
+      color: aqua;
+    }
+    .my-gallery__link {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .my-gallery__title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .my-gallery {
+    flex-grow: 1;
+    align-items: center;
+  }
+
+   .top-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .container-demo-section {
+    margin: 0;
+    max-width: 400px;
+    
+  }
+  
+  .resizable-container {
+    width: 200px;
+    height: 150px;
+  }
+  }
+
+  @media (min-width: 1200px) {
+    .resizable-container {
+    width: 250px;
+    height: 200px;
+  }
+    .my-gallery__menu {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .my-gallery__title {
+      text-align: center;
+      font-size: 4rem;
+      margin-bottom: 40px;
+    }
+
+    .my-gallery__image--big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .my-gallery__image--small {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .my-gallery__link:hover {
+      color: darkgoldenrod;
+    }
+    .my-gallery__link
+    {
+        font-size:2.6rem ;
+    }
+  }
+</style>
+<script>
+  const $menuButton = document.querySelector(".menu-button");
+  const $menu = document.querySelector(".my-gallery__menu");
+
+  $menuButton.addEventListener("click", () => {
+    $menu.classList.toggle("show-menu");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!$menu.contains(event.target) && !$menuButton.contains(event.target)) {
+      $menu.classList.remove("show-menu");
+    }
+  });
+</script>
